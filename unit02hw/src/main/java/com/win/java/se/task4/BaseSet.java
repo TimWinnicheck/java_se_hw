@@ -1,6 +1,5 @@
 package main.java.com.win.java.se.task4;
 
-import java.util.Arrays;
 
 public class BaseSet implements ComparisonInterface{
 
@@ -71,6 +70,34 @@ public class BaseSet implements ComparisonInterface{
             j = 0;
             while (j < amount-1){
                 if (temp[j].name.compareTo(temp[j+1].name) > 0)
+                {
+                    tmp = temp[j+1];
+                    temp[j+1] = temp[j];
+                    temp[j] = tmp;
+                }
+                j++;
+            }
+            i++;
+        }
+
+        this.Contents = temp;
+
+    }
+
+    public void sortbynameandprice() {
+
+        Implement[] temp = new Implement[this.Contents.length];
+        System.arraycopy(Contents,0,temp,0,this.Contents.length);
+
+        int i = 0;
+        int j = 0;
+        Implement tmp;
+
+
+        while (i < amount){
+            j = 0;
+            while (j < amount-1){
+                if (((temp[j].name.compareTo(temp[j+1].name) == 0) && (temp[j].cost < temp[j+1].cost)) || (temp[j].cost == temp[j+1].cost) && (temp[j].name.compareTo(temp[j+1].name) > 0) || (temp[j].name.compareTo(temp[j+1].name) > 0))
                 {
                     tmp = temp[j+1];
                     temp[j+1] = temp[j];

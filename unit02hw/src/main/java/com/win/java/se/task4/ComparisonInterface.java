@@ -6,4 +6,5 @@ public interface ComparisonInterface {
 
     public void sortbyname();
 
+    public void sortbynameandprice();
 }
