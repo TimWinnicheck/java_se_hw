@@ -59,5 +59,29 @@ public class BaseSet implements ComparisonInterface{
 
     public void sortbyname(){
 
+        Implement[] temp = new Implement[this.Contents.length];
+        System.arraycopy(Contents,0,temp,0,this.Contents.length);
+
+        int i = 0;
+        int j = 0;
+        Implement tmp;
+
+
+        while (i < amount){
+            j = 0;
+            while (j < amount-1){
+                if (temp[j].name.compareTo(temp[j+1].name) > 0)
+                {
+                    tmp = temp[j+1];
+                    temp[j+1] = temp[j];
+                    temp[j] = tmp;
+                }
+                j++;
+            }
+            i++;
+        }
+
+        this.Contents = temp;
+
     }
 }

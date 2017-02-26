@@ -31,6 +31,26 @@ public class BaseSetTest {
     @Test
     public void sortbyname() throws Exception {
 
+        Eraser eraser = new Eraser();
+        Pen pen = new Pen();
+        Pencil pencil = new Pencil();
+        Ruler ruler = new Ruler();
+
+        BaseSet set = new BaseSet();
+
+        set.add(pencil);
+        set.add(pen);
+        set.add(eraser);
+        set.add(ruler);
+
+        set.list();
+
+        set.sortbyname();
+
+        System.out.println("-------------------------------------------");
+
+        set.list();
+
     }
 
     @Test

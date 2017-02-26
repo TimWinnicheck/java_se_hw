@@ -5,4 +5,5 @@ public interface ComparisonInterface {
     public void sortbyprice();
 
     public void sortbyname();
+
 }
