@@ -2,17 +2,24 @@ package main.java.com.win.java.se;
 
 public class Pen {
 
-    private char[] Color;
+    private String Color;
     private int Length;
-    private char[] Manufacturer;
+    private String Manufacturer;
 
     public Pen() {
     }
 
-    public Pen(char[] Color, int Length, char[] Manufacturer)
+    public Pen(String Color, int Length, String Manufacturer)
     {
         this.Color = Color;
         this.Length = Length;
         this.Manufacturer = Manufacturer;
+    }
+
+    public Pen(String Color, int Length)
+    {
+        this.Color = Color;
+        this.Length = Length;
+        this.Manufacturer = "Unknown";
     }
 }
