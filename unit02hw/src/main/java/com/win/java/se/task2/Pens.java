@@ -11,4 +11,14 @@ public class Pens {
         this.amount = 1;
         this.cost = basecost;
     }
+
+    Pens(int n)
+    {
+        if (n <= 0)
+        {
+            throw new IllegalArgumentException();
+        }
+        this.cost = basecost;
+        this.amount = n;
+    }
 }

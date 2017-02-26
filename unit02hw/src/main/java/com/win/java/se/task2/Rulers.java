@@ -11,4 +11,14 @@ public class Rulers {
         this.cost = basecost;
         this.amount = 1;
     }
+
+    Rulers(int n)
+    {
+        if (n <= 0)
+        {
+            throw new IllegalArgumentException();
+        }
+        this.cost = basecost;
+        this.amount = n;
+    }
 }
