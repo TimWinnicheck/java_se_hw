@@ -25,9 +25,4 @@ public class BaseSetTest {
 
     }
 
-    @Test
-    public void listtest() throws Exception {
-
-    }
-
 }
