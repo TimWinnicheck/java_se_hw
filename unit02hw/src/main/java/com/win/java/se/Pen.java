@@ -1,16 +1,19 @@
 package main.java.com.win.java.se;
 
+
 public class Pen {
 
     private String Color;
     private int Length;
     private String Manufacturer;
 
-    public Pen() {
-    }
-
     public Pen(String Color, int Length, String Manufacturer)
     {
+
+        if (Color == "" || Length <= 0 || Manufacturer == "")
+        {
+            throw new IllegalArgumentException();
+        }
         this.Color = Color;
         this.Length = Length;
         this.Manufacturer = Manufacturer;
@@ -18,6 +21,11 @@ public class Pen {
 
     public Pen(String Color, int Length)
     {
+        if (Color == "" || Length <= 0 )
+        {
+            throw new IllegalArgumentException();
+        }
+
         this.Color = Color;
         this.Length = Length;
         this.Manufacturer = "Unknown";
