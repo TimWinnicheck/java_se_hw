@@ -4,17 +4,17 @@ import java.lang.reflect.Array;
 
 public class BaseSet {
 
-    Object[] Contents;
+    Implement[] Contents;
     private int amount;
 
     BaseSet()
     {
         amount = 0;
-        Contents = new Object[1];
+        Contents = new Implement[1];
     }
 
-    public void add(Object item){
-        Object[] next = new Object[this.Contents.length+1];
+    public void add(Implement item){
+        Implement[] next = new Implement[this.Contents.length+1];
         System.arraycopy(Contents,0,next,0,this.Contents.length);
         next[this.amount] = item;
         this.amount++;
