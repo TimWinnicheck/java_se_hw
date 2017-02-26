@@ -3,11 +3,10 @@ package main.java.com.win.java.se.task3;
 public class Pen extends WritingImplement {
 
     public String color;
-    public String name = "Pen";
 
-    Pen () {
+    public Pen() {
         this.color = "Blue";
-        this.name = name;
+        this.name = "Pen";
         this.cost = 30;
         this.length = 10;
     }
@@ -19,7 +18,7 @@ public class Pen extends WritingImplement {
             throw new IllegalArgumentException();
         }
         this.color = color;
-        this.name = name;
+        this.name = "Pen";
         this.cost = cost;
         this.length = length;
     }

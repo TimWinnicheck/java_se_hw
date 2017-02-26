@@ -2,11 +2,9 @@ package main.java.com.win.java.se.task3;
 
 public class Eraser extends ErasingImplement {
 
-    public String name = "Eraser";
-
-    Eraser () {
+    public Eraser() {
         this.toughness = 1.0;
-        this.name = name;
+        this.name = "Eraser";
         this.cost = 15;
     }
 
@@ -17,7 +15,7 @@ public class Eraser extends ErasingImplement {
             throw new IllegalArgumentException();
         }
         this.toughness = toughness;
-        this.name = name;
+        this.name = "Eraser";
         this.cost = cost;
     }
 }

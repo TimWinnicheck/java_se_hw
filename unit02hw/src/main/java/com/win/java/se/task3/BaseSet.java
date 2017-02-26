@@ -7,7 +7,7 @@ public class BaseSet {
     Implement[] Contents;
     private int amount;
 
-    BaseSet()
+    public BaseSet()
     {
         amount = 0;
         Contents = new Implement[1];
