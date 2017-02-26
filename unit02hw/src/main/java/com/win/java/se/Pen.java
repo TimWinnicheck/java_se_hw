@@ -54,9 +54,9 @@ public class Pen {
     @Override
     public String toString() {
         return "Pen{" +
-                "Color='" + Color + '\'' +
+                "Color=" + Color +
                 ", Length=" + Length +
-                ", Manufacturer='" + Manufacturer + '\'' +
+                ", Manufacturer=" + Manufacturer +
                 '}';
     }
 }
