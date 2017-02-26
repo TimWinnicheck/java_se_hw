@@ -21,4 +21,9 @@ public class Rulers {
         this.cost = basecost;
         this.amount = n;
     }
+
+    public int total() {
+
+        return this.amount*this.cost;
+    }
 }
