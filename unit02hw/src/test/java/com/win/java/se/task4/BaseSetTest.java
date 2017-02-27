@@ -1,4 +1,4 @@
-package test.java.com.win.java.se.test4;
+package test.java.com.win.java.se.task4;
 
 import main.java.com.win.java.se.task4.*;
 import org.junit.Test;

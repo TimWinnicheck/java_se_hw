@@ -1,9 +1,7 @@
-package test.java.com.win.java.se.test3;
+package test.java.com.win.java.se.task3;
 
 import main.java.com.win.java.se.task3.*;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class BaseSetTest {
     @Test

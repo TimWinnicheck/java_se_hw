@@ -1,7 +1,6 @@
-package test.java.com.win.java.se.test2;
+package test.java.com.win.java.se.task2;
 
 import main.java.com.win.java.se.task2.Employee;
-import main.java.com.win.java.se.task2.Pens;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
