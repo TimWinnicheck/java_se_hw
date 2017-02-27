@@ -12,7 +12,7 @@ public class notepadTest {
         notepad test = new notepad();
 
         test.add("test1");
-        test.add("test2");
+        test.add("task2");
         test.list();
 
     }
@@ -23,7 +23,7 @@ public class notepadTest {
         notepad test = new notepad();
 
         test.add("test1");
-        test.add("test2");
+        test.add("task2");
         test.remove(1);
         test.remove(2);
         test.remove(2);
@@ -38,9 +38,9 @@ public class notepadTest {
         notepad test = new notepad();
 
         test.add("test1");
-        test.add("test2");
-        test.add("test3");
-        test.add("test4");
+        test.add("task2");
+        test.add("task3");
+        test.add("task4");
         test.add("test5");
 
         test.list();
@@ -74,9 +74,9 @@ public class notepadTest {
         notepad test = new notepad();
 
         test.add("test1");
-        test.add("test2");
-        test.add("test3");
-        test.add("test4");
+        test.add("task2");
+        test.add("task3");
+        test.add("task4");
         test.add("test5");
 
         test.list();
