@@ -1,7 +1,9 @@
 package com.win.java.se.task1;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Formatter;
+import java.util.SimpleTimeZone;
 
 public class CrazyLogger {
 
@@ -14,10 +16,9 @@ public class CrazyLogger {
     }
 
     private String getDate(){
-        Formatter formatter = new Formatter();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-YYYY : HH-mm");
         Calendar calendar = Calendar.getInstance();
-        formatter.format("%td %tm %tY : %tH-%tM",calendar);
-        return formatter.toString();
+        return format.format(calendar.getTime()).toString();
     }
 
 
