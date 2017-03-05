@@ -25,4 +25,15 @@ public class CrazyLoggerTest {
         assertTrue(CL.find("Test",true) == 1 );
     }
 
+    @Test
+    public void FindingMultipleStringsTest() {
+
+        CrazyLogger CL = new CrazyLogger();
+        CL.add("Test String");
+        CL.add("Test String 2");
+        CL.add("Testdsew");
+        CL.add("teststring");
+        assertTrue(CL.find("Test", true) == 3);
+    }
+
 }
