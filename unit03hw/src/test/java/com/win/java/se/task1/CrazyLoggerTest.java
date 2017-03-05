@@ -8,17 +8,17 @@ public class CrazyLoggerTest {
 
     @Test
 
-    public static void AddingNewLineTest() {
+    public void AddingNewLineTest() {
 
         CrazyLogger CL = new CrazyLogger();
         CL.add("Test String");
         CL.add("Test String 2");
         CL.add("Test String 3");
-        CL.out;
+        CL.out();
     }
 
     @Test
-    public static void FindingAStringTest() {
+    public void FindingAStringTest() {
 
         CrazyLogger CL = new CrazyLogger();
         CL.add("Test String");
