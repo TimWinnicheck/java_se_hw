@@ -44,7 +44,22 @@ public class CrazyLogger {
 
     }
 
-    public int find(String StringToFind){
-        return 0;
+    public int find(String StringToFind,boolean PrintToOut){
+        int i = 0;
+        int linefound = 0;
+
+        while (i < size)
+        {
+            if (Contents[i].indexOf(StringToFind) != -1)
+            {
+                linefound = i + 1;
+                if (PrintToOut == true)
+                {
+                    System.out.println("Match found: Line number" + linefound + " : " + Contents[i]);
+                }
+            }
+            i++;
+        }
+        return linefound;
     }
 }

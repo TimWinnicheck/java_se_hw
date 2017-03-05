@@ -22,7 +22,7 @@ public class CrazyLoggerTest {
 
         CrazyLogger CL = new CrazyLogger();
         CL.add("Test String");
-        assertTrue(CL.find("Test") == 1 );
+        assertTrue(CL.find("Test",true) == 1 );
     }
 
 }
