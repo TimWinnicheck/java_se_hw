@@ -14,7 +14,7 @@ public class CrazyLoggerTest {
         CL.add("Test String");
         CL.add("Test String 2");
         CL.add("Test String 3");
-        CL.print;
+        CL.out;
     }
 
     @Test
