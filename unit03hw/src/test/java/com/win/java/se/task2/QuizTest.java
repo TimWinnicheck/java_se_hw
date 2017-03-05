@@ -8,11 +8,11 @@ import static org.junit.Assert.*;
 
 public class QuizTest {
     @Test
-    public void questiontest() throws Exception {
+    public void answertest() throws Exception {
 
         Locale en = new Locale("en", "US");
         Quiz Q = new Quiz(en);
-        assertTrue(Q.question(1) == "What is your name?");
+        assertTrue(Q.answer(1).compareTo("Tim") == 0);
 
     }
 

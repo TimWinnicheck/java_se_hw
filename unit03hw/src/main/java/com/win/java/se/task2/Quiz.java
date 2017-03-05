@@ -10,7 +10,7 @@ public class Quiz {
         this.locale = locale;
     }
 
-    public String question (int number) {
+    public String answer(int number) {
         ResourceProperty Bundle = new ResourceProperty(this.locale);
         return Bundle.getValue(String.valueOf(number));
 
