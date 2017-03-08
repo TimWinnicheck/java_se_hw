@@ -21,4 +21,12 @@ public class ReaderTest {
         RD.stringsOut(Text);
     }
 
+    @Test
+    public void findPicturesTest() throws Exception {
+
+        Reader RD = new Reader("./src/main/java/com/win/java/se/resources/task3.html");
+        String[] Text = RD.splitter(RD.findPictures(RD.toReadable()));
+        RD.stringsOut(Text);
+    }
+
 }
