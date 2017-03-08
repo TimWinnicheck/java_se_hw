@@ -29,4 +29,12 @@ public class ReaderTest {
         RD.stringsOut(Text);
     }
 
+    @Test
+    public void isSequentialTest() throws Exception {
+
+        Reader RD = new Reader("./src/main/java/com/win/java/se/resources/task3.html");
+        Boolean Result = RD.isSequential(RD.findPictures(RD.toReadable()));
+        assertFalse(Result);
+    }
+
 }

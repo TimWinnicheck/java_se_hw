@@ -67,11 +67,12 @@ public class Reader {
     public boolean isSequential (String text){
         Pattern PText = Pattern.compile("(\\(Рис\\. \\d\\))[.]+(\\(Рис\\. \\d\\))");
         Matcher MText = PText.matcher(text);
-        boolean OutFlag = true;
+        boolean OutFlag = false;
 
         while (MText.find() != false) {
             if (MText.group().charAt(7) >= MText.group().charAt(MText.group().length() - 1)) {
                 OutFlag = false;
+                return OutFlag;
             }
         }
         return OutFlag;
