@@ -13,4 +13,12 @@ public class ReaderTest {
 
     }
 
+    @Test
+    public void outputUsingStringsoutTest() throws Exception {
+
+        Reader RD = new Reader("./src/main/java/com/win/java/se/resources/task3.html");
+        String[] Text = RD.splitter(RD.toReadable());
+        RD.stringsOut(Text);
+    }
+
 }

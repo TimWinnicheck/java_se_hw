@@ -37,7 +37,7 @@ public class Reader {
 
     public void stringsOut(String[] strings){
         int i = 0;
-        while (i <= strings.length){
+        while (i < strings.length){
             System.out.println(strings[i]);
             i++;
         }
