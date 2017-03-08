@@ -19,9 +19,11 @@ public class Reader {
         this.FIStream = new FileInputStream(pathname);
         InputStreamReader ISReader = new InputStreamReader(this.FIStream,"Cp1251");
         StringBuilder SBOut = new StringBuilder();
+        int current = ISReader.read();
 
-        while (ISReader.read() != 1){
-            SBOut.append((char)ISReader.read());
+        while (current != -1){
+            SBOut.append((char)current);
+            current = ISReader.read();
         }
 
         FIStream.close();
