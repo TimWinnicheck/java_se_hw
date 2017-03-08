@@ -31,5 +31,17 @@ public class Reader {
 
     }
 
+    public String[] splitter(String text) {
+        return text.toString().split("\n");
+    }
+
+    public void stringsOut(String[] strings){
+        int i = 0;
+        while (i <= strings.length){
+            System.out.println(strings[i]);
+            i++;
+        }
+    }
+
 }
 
