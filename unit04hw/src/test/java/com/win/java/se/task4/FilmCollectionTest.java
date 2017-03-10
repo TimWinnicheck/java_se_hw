@@ -6,9 +6,9 @@ import static org.junit.Assert.*;
 
 public class FilmCollectionTest {
     @Test
-    public void saveCollection() throws Exception {
+    public void saveCollectionTest() throws Exception {
 
-        Actor ac1 = new Actor("Johny Depp", 50);
+        Actor ac1 = new Actor("Ac1", 50);
         Actor ac2 = new Actor("Ac2");
         Film fm1 = new Film("fm1", ac1);
         Film fm2 = new Film("fm2", ac1);
@@ -23,7 +23,7 @@ public class FilmCollectionTest {
     @Test
     public void addFilmTest() throws Exception {
 
-        Actor ac1 = new Actor("Johny Depp", 50);
+        Actor ac1 = new Actor("Ac1", 50);
         Actor ac2 = new Actor("Ac2");
         Film fm1 = new Film("fm1", ac1);
         Film fm2 = new Film("fm2", ac1);
