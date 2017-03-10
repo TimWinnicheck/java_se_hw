@@ -21,6 +21,14 @@ public class FilmCollection implements Serializable {
         this.pathOUT = pathOUT;
     }
 
+    public static FilmCollection LoadCollection(String pathIN) throws IOException, ClassNotFoundException {
+        FileInputStream FIStream = new FileInputStream(pathIN);
+        ObjectInputStream OIStream = new ObjectInputStream(FIStream);
+        FilmCollection out = (FilmCollection) OIStream.readObject();
+        OIStream.close();
+        return out;
+    }
+
     public void addFilm(Film filmToAdd) {
         if (amount == Base.length) {
             Film[] New = new Film[Base.length + 1];

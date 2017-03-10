@@ -37,8 +37,24 @@ public class FilmCollectionTest {
     }
 
     @Test
-    public void listFilms() throws Exception {
+    public void loadCollectionTest() throws Exception {
 
+        FilmCollection FC = FilmCollection.LoadCollection("C:/Users/Void/Java/Projects/java_se_hw/unit04hw/src/main/resources/task4saved.txt");
+        FC.listFilms();
+
+    }
+
+    @Test
+    public void loadCollectionModifyItThenSaveAndReload() throws Exception {
+
+        FilmCollection FC = FilmCollection.LoadCollection("C:/Users/Void/Java/Projects/java_se_hw/unit04hw/src/main/resources/task4saved.txt");
+        FC.listFilms();
+        Actor ac3 = new Actor("Ac3");
+        Film fm4 = new Film("fm4", ac3);
+        FC.addFilm(fm4);
+        FC.SaveCollection();
+        FilmCollection FC2 = FilmCollection.LoadCollection("C:/Users/Void/Java/Projects/java_se_hw/unit04hw/src/main/resources/task4saved.txt");
+        FC2.listFilms();
     }
 
 }
