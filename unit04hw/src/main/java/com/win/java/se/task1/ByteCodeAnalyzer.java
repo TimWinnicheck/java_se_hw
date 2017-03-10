@@ -22,6 +22,11 @@ public class ByteCodeAnalyzer {
 
     ByteCodeAnalyzer(String path){
         this.path = path;
+        int i = 0;
+        while (i < tally.length) {
+            this.tally[i] = 0;
+            i++;
+        }
     }
 
     public void read() throws IOException {
@@ -49,11 +54,25 @@ public class ByteCodeAnalyzer {
     private void checkForKeyword(String stringToCheck) {
         int i = 0;
         while (i < keywords.length) {
-            if (stringToCheck == keywords[i]) {
-                tally[i] = tally[i]++;
+            if (stringToCheck.compareTo(keywords[i]) == 0) {
+                this.tally[i] = this.tally[i] + 1;
                 return;
             } else i++;
         }
         return;
+    }
+
+    public void endTally() {
+        int total = 0;
+        int i = 0;
+        System.out.println("Keywords:");
+        while (i < this.tally.length) {
+            if (this.tally[i] != 0) {
+                System.out.println(keywords[i] + " " + this.tally[i]);
+            }
+            total = total + this.tally[i];
+            i++;
+        }
+        System.out.println("Total: " + total);
     }
 }
