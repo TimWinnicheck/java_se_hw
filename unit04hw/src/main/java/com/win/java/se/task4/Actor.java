@@ -1,6 +1,8 @@
 package com.win.java.se.task4;
 
-public class Actor {
+import java.io.Serializable;
+
+public class Actor implements Serializable {
 
     String name;
     int age;
