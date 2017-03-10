@@ -7,17 +7,18 @@ import java.util.Scanner;
 
 public class ByteCodeAnalyzer {
 
+    private static String[] keywords = {"abstract", "continue", "for", "new", "switch",
+            "assert", "default", "goto", "package", "synchronized",
+            "boolean", "do", "if", "private", "this",
+            "break", "double", "implements", "protected", "throw",
+            "byte", "else", "import", "public", "throws",
+            "case", "enum", "instanceof", "return", "transient",
+            "catch", "extends", "int", "short", "try",
+            "char", "final", "interface", "static", "void",
+            "class", "finally", "long", "strictfp", "volatile",
+            "const", "float", "native", "super", "while"};
     String path;
-    String[] keywords = {"abstract","continue","for", "new", "switch"
-            "assert","default","goto", "package", "synchronized" +
-            "boolean \tdo \tif \tprivate \tthis\n" +
-            "break \tdouble \timplements \tprotected \tthrow\n" +
-            "byte \telse \timport \tpublic \tthrows\n" +
-            "case \tenum**** \tinstanceof \treturn \ttransient\n" +
-            "catch \textends \tint \tshort \ttry\n" +
-            "char \tfinal \tinterface \tstatic \tvoid\n" +
-            "class \tfinally \tlong \tstrictfp** \tvolatile\n" +
-            "const* \tfloat \tnative \tsuper \twhile"}
+    private int[] tally = new int[keywords.length];
 
     ByteCodeAnalyzer(String path){
         this.path = path;
@@ -41,11 +42,18 @@ public class ByteCodeAnalyzer {
         FileIN = new FileInputStream(this.path);
         Scanner scanner = new Scanner(FileIN);
         while (scanner.hasNext()){
-            System.out.println(scanner.next());
+            checkForKeyword(scanner.next());
         }
     }
 
-    private boolean checkForKeyword(String stringToCheck) {
-
+    private void checkForKeyword(String stringToCheck) {
+        int i = 0;
+        while (i < keywords.length) {
+            if (stringToCheck == keywords[i]) {
+                tally[i] = tally[i]++;
+                return;
+            } else i++;
+        }
+        return;
     }
 }
