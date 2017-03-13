@@ -21,12 +21,29 @@ public class CommandLine {
 
         String[] splitCommand = currentCommand.split(" ");
 
+        if (splitCommand[0].compareTo("curdir") == 0) {
+            curdir();
+        } else {
+            if (splitCommand[0].compareTo("dir") == 0) {
+                dir();
+            }
+        }
+
+    }
+
+    private static void curdir() {
+
+        System.out.println(DirectoryCoordinator.currentDir());
+
     }
 
     private static void dir() {
 
-        System.out.println(DirectoryExplorer.getCurrentDirectoryList());
+        DirectoryCoordinator.dir();
+    }
 
+    public static void main(String[] args) {
+        Start();
     }
 
 }
