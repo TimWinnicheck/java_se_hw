@@ -1,6 +1,7 @@
 package com.win.java.se.task1;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -34,7 +35,7 @@ public class DirectoryCoordinator {
 
     public static void cd(String targetDirectory) throws IllegalDirectoryException {
 
-        Path targetPath = setPath(targetDirectory);
+        Path targetPath = getPath(targetDirectory);
 
         if (!Files.exists(targetPath) || !Files.isDirectory(targetPath)) {
             throw new IllegalDirectoryException(targetPath.toString());
@@ -46,7 +47,7 @@ public class DirectoryCoordinator {
 
     }
 
-    private static Path setPath(String targetDirectory) {
+    private static Path getPath(String targetDirectory) {
         Path output;
         if (targetDirectory == "..") {
             output = Paths.get(currentDirectory).getParent();
@@ -69,6 +70,18 @@ public class DirectoryCoordinator {
             File fileToDelete = new File(DirectoryCoordinator.currentDir() + "/" + targetFilename);
             fileToDelete.delete();
         }
+
+    }
+
+    public static void write(String targetFilename, String content) throws IOException, IllegalFilenameException {
+
+        if (Files.exists(getPath(targetFilename)) != true) {
+            throw new IllegalFilenameException(getPath(targetFilename));
+        }
+        FileWriter FW = new FileWriter(getPath(targetFilename).toString());
+        FW.write(content);
+        FW.close();
+
 
     }
 }

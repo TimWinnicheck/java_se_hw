@@ -36,12 +36,26 @@ public class CommandLine {
                     } else {
                         if (splitCommand[0].compareTo("rm") == 0) {
                             rm(splitCommand[1]);
+                        } else {
+                            if (splitCommand[0].compareTo("write") == 0) {
+                                write(splitCommand[1], splitCommand[2]);
+                            }
                         }
                     }
                 }
             }
         }
 
+    }
+
+    private static void write(String targetFilename, String content) {
+        try {
+            DirectoryCoordinator.write(targetFilename, content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalFilenameException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void rm(String targetFilename) {
