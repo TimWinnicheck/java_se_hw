@@ -26,6 +26,12 @@ public class CommandLine {
         } else {
             if (splitCommand[0].compareTo("dir") == 0) {
                 dir();
+            } else {
+                if (splitCommand[0].compareTo("cd") == 0) {
+                    cd(splitCommand[1]);
+                } else {
+
+                }
             }
         }
 
@@ -40,6 +46,17 @@ public class CommandLine {
     private static void dir() {
 
         DirectoryCoordinator.dir();
+
+    }
+
+    private static void cd(String targetDirectory) {
+
+        try {
+            DirectoryCoordinator.cd(targetDirectory);
+        } catch (IllegalDirectoryException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) {
