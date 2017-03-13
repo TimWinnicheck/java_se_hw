@@ -17,14 +17,13 @@ public class DirectoryCoordinator {
         File mainFile = new File(currentDir());
         File[] mainFileList = mainFile.listFiles();
 
-        for (File temp : mainFileList) {
-            if (temp.isDirectory()) {
-                System.out.println("dir " + temp.getName());
-            } else {
-                if (temp.isFile()) {
-                    System.out.println(temp.getName());
+        for (File temp : mainFileList)
+            if (temp.isDirectory())
+                System.out.println("/" + temp.getName());
+        for (File temp2 : mainFileList) {
+            if (temp2.isFile()) {
+                System.out.println(temp2.getName());
                 }
-            }
         }
 
     }
