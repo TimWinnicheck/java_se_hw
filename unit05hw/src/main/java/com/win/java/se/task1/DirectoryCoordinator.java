@@ -1,6 +1,7 @@
 package com.win.java.se.task1;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -53,5 +54,21 @@ public class DirectoryCoordinator {
             output = Paths.get(currentDirectory + "/" + targetDirectory);
         }
         return output;
+    }
+
+    public static void touch(String targetFilename) throws IOException {
+
+        File fileToCreate = new File(DirectoryCoordinator.currentDir() + "/" + targetFilename);
+        fileToCreate.createNewFile();
+
+    }
+
+    public static void rm(String targetFilename) {
+
+        if (Files.exists(Paths.get(DirectoryCoordinator.currentDirectory + "/" + targetFilename)) == true) {
+            File fileToDelete = new File(DirectoryCoordinator.currentDir() + "/" + targetFilename);
+            fileToDelete.delete();
+        }
+
     }
 }
