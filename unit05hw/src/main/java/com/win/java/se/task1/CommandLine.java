@@ -23,4 +23,10 @@ public class CommandLine {
 
     }
 
+    private static void dir() {
+
+        System.out.println(DirectoryExplorer.getCurrentDirectoryList());
+
+    }
+
 }
