@@ -22,7 +22,9 @@ public class PropertiesManager {
         InputStream IS = new FileInputStream(path);
 
         properties.load(IS);
-        for (int i = 0; i < Values.values().length; i++) {
+
+        int i = 0;
+        while (i < Values.values().length) {
             if (properties.containsKey(Values.values()[i].getIdentifier()))
                 SB.append(Values.values()[i].getIdentifier() + ": " + properties.getProperty(Values.values()[i].getIdentifier()) + "\n");
             else
@@ -32,6 +34,7 @@ public class PropertiesManager {
                     e.printStackTrace();
                 }
 
+            i++;
         }
         return SB.toString();
 
@@ -39,12 +42,13 @@ public class PropertiesManager {
     }
 
     private static void checkForExisting(Path file, String path) {
-        if (!Files.exists(file)) {
-            try {
-                throw new IllegalPropertiesFileException(path);
-            } catch (IllegalPropertiesFileException e) {
-                e.printStackTrace();
-            }
+        if (Files.exists(file)) {
+            return;
+        }
+        try {
+            throw new IllegalPropertiesFileException(path);
+        } catch (IllegalPropertiesFileException e) {
+            e.printStackTrace();
         }
     }
 
