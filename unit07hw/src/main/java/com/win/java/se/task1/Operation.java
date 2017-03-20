@@ -42,10 +42,10 @@ public class Operation {
     @Override
     public String toString() {
         return "Operation{" +
-                "id=" + id +
-                ", sender='" + sender + '\'' +
-                ", recipient='" + recipient + '\'' +
-                ", amount=" + amount +
+                "id=" + this.id +
+                ", sender='" + this.sender + '\'' +
+                ", recipient='" + this.recipient + '\'' +
+                ", amount=" + this.amount +
                 '}';
     }
 }

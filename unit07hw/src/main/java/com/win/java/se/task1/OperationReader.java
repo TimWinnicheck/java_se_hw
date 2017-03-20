@@ -17,7 +17,7 @@ public class OperationReader {
 
     public synchronized Operation[] Read() throws IOException {
 
-        FileInputStream FIS = new FileInputStream(path);
+        FileInputStream FIS = new FileInputStream(this.path);
         StringBuilder SB = new StringBuilder();
         int current;
         current = FIS.read();
@@ -36,18 +36,18 @@ public class OperationReader {
         int j = 0;
         while (i < split.length) {
 
-            operations[i] = new Operation();
+            this.operations[i] = new Operation();
             splitbyword = split[i].split(" ");
 
-            operations[i].setId(Integer.parseInt(splitbyword[0]));
-            operations[i].setSender(splitbyword[1]);
-            operations[i].setRecipient(splitbyword[2]);
-            operations[i].setAmount(Integer.parseInt("50"));
+            this.operations[i].setId(Integer.parseInt(splitbyword[0]));
+            this.operations[i].setSender(splitbyword[1]);
+            this.operations[i].setRecipient(splitbyword[2]);
+            this.operations[i].setAmount(Integer.parseInt("50"));
 
             i++;
         }
 
-        return operations;
+        return this.operations;
 
     }
 }

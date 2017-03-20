@@ -11,6 +11,6 @@ public class OperationThread extends Thread {
     }
 
     public Operation[] Read() throws IOException {
-        return OR.Read();
+        return this.OR.Read();
     }
 }
