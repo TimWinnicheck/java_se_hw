@@ -38,4 +38,14 @@ public class Operation {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "id=" + id +
+                ", sender='" + sender + '\'' +
+                ", recipient='" + recipient + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 }

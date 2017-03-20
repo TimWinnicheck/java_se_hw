@@ -42,7 +42,7 @@ public class OperationReader {
             operations[i].setId(Integer.parseInt(splitbyword[0]));
             operations[i].setSender(splitbyword[1]);
             operations[i].setRecipient(splitbyword[2]);
-            operations[i].setAmount(Integer.parseInt(splitbyword[3]));
+            operations[i].setAmount(Integer.parseInt("50"));
 
             i++;
         }
