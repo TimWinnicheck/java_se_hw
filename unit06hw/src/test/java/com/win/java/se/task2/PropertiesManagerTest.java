@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.*;
+
 public class PropertiesManagerTest {
     @Test
     public void readingTest() throws Exception {
