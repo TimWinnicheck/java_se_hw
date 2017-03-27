@@ -10,21 +10,33 @@ public class PropertiesManagerTest {
     @Test
     public void readingTest() throws Exception {
 
-        System.out.println(PropertiesManager.read("resources/source1.properties"));
+        try {
+            System.out.println(PropertiesManager.read("resources/source1.properties"));
+        } catch (IllegalPropertiesFileException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Test(expected = IllegalPropertiesFileException.class)
     public void noFileExceptionTest() throws IOException {
 
-        System.out.println(PropertiesManager.read("no.properties"));
+        try {
+            System.out.println(PropertiesManager.read("no.properties"));
+        } catch (IllegalPropertiesFileException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Test(expected = IllegalKeyException.class)
     public void illegalKeyExceptionTest() throws IOException {
 
-        System.out.println(PropertiesManager.read("resources/source2.properties"));
+        try {
+            System.out.println(PropertiesManager.read("resources/source2.properties"));
+        } catch (IllegalPropertiesFileException e) {
+            e.printStackTrace();
+        }
 
     }
 
