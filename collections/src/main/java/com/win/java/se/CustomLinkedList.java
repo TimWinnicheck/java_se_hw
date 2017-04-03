@@ -109,7 +109,14 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        return false;
+        if (c == null) {
+            return false;
+        } else {
+            for (Object value : c) {
+                add((T) value);
+            }
+        }
+        return true;
     }
 
     @Override
