@@ -68,7 +68,7 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public <T1> T1[] toArray(T1[] a) {
-        return null;
+        return (T1[]) toArray();
     }
 
     @Override
