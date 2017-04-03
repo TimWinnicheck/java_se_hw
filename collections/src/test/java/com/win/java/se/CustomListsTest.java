@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static junit.framework.TestCase.assertFalse;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -140,6 +141,22 @@ public class CustomListsTest {
         fillList();
 
         assertFalse(list.remove("sadasdasd"));
+    }
+
+    @Test
+    public void toArrayTest() throws Exception {
+        fillList();
+
+        assertTrue(list.toArray() instanceof Object);
+    }
+
+    @Test
+    public void testThatToArrayReturnsArrayWithACorrectSize() throws Exception {
+        fillList();
+
+        Object[] Array = list.toArray();
+        assertTrue(Array.length == 6);
+
     }
 
     private void fillList() {
