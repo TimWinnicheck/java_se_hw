@@ -99,7 +99,12 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        for (Object value : c) {
+            if (!contains(value)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

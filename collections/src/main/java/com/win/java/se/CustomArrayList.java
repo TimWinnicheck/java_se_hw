@@ -94,8 +94,17 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        Objects.requireNonNull(c);
+        for (Object value : c) {
+            if (contains(value)) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
+
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
