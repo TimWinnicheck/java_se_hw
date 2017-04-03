@@ -179,7 +179,14 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        Node<T> current = head.next;
+        for (int i = 0; i < size; i++) {
+            if (current.value == o) {
+                return i;
+            }
+            current = current.next;
+        }
+        return -1;
     }
 
     @Override

@@ -176,7 +176,14 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        int index = 0;
+        while (index < size) {
+            if (data[index] == o) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
     }
 
     @Override

@@ -204,6 +204,32 @@ public class CustomListsTest {
 
     }
 
+    @Test
+    public void testThatIndexOfFindsAnExistingElement() throws Exception {
+
+        fillList();
+
+        assertTrue(list.indexOf("ssss") == 3);
+    }
+
+    @Test
+    public void testThatIndexOfReturnsMinusOneIfElementDoesntExist() throws Exception {
+
+        fillList();
+
+        assertTrue(list.indexOf("doesntexist") == -1);
+
+    }
+
+    @Test
+    public void testThatIndexOfCanFindBorderlineElements() throws Exception {
+
+        fillList();
+
+        assertTrue(list.indexOf("aa0a") == 0);
+        assertTrue(list.indexOf("aa4a") == 5);
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");
