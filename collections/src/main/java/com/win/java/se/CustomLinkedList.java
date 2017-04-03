@@ -133,7 +133,14 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        if (c == null) {
+            return false;
+        } else {
+            for (Object value : c) {
+                remove(value);
+            }
+        }
+        return true;
     }
 
     @Override
