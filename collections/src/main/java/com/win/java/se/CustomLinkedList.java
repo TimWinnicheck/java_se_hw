@@ -191,7 +191,15 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        Node<T> current = head.next;
+        int found = -1;
+        for (int i = 0; i < size; i++) {
+            if (current.value == o) {
+                found = i;
+            }
+            current = current.next;
+        }
+        return found;
     }
 
     @Override

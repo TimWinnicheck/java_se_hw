@@ -230,6 +230,16 @@ public class CustomListsTest {
         assertTrue(list.indexOf("aa4a") == 5);
     }
 
+    @Test
+    public void testThatLastIndexOfFindsTheLastIndexOfAnElement() throws Exception {
+
+        fillList();
+        list.add("ssss");
+
+        assertTrue(list.lastIndexOf("ssss") == 6);
+
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");

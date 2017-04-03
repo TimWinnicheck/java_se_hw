@@ -188,7 +188,15 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        int index = 0;
+        int found = -1;
+        while (index < size) {
+            if (data[index] == o) {
+                found = index;
+            }
+            index++;
+        }
+        return found;
     }
 
     @Override
