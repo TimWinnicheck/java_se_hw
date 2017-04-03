@@ -174,4 +174,19 @@ public class CustomArrayList<T> implements List<T> {
     public List<T> subList(int fromIndex, int toIndex) {
         return null;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder SB = new StringBuilder();
+        SB.append("{ ");
+
+        int i = 0;
+        while (i < size) {
+            SB.append(data[i] + " ");
+            i++;
+        }
+
+        SB.append(" }");
+        return SB.toString();
+    }
 }

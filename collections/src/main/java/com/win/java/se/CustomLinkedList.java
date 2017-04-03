@@ -177,6 +177,19 @@ public class CustomLinkedList<T> implements List<T> {
         return null;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder SB = new StringBuilder();
+        SB.append("{ ");
+        Node<T> iterator = head;
+        while (iterator.hasNext()) {
+            iterator = iterator.next;
+            SB.append(iterator.value + " ");
+        }
+        SB.append(" }");
+        return SB.toString();
+    }
+
     private Node<T> getNodeByIndex(int index) {
 
         if (index < 0 || index >= size) {

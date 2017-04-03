@@ -167,6 +167,15 @@ public class CustomListsTest {
 
     }
 
+    @Test
+    public void testThatItsPossibleToAddAnElementByIndex() throws Exception {
+        fillList();
+
+        list.add(1, "aa1naa");
+        assertTrue(list.get(1) == "aa1naa");
+        assertTrue(list.get(2) == "aa2a");
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");
