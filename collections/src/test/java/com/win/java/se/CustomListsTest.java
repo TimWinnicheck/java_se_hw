@@ -195,6 +195,15 @@ public class CustomListsTest {
         list.add(6, "asdasd");
     }
 
+    @Test
+    public void testThatItsPossibleToSetAnElement() throws Exception {
+        fillList();
+
+        list.set(5, "new");
+        assertTrue(list.get(5) == "new");
+
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");

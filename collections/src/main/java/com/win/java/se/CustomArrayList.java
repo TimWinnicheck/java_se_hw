@@ -133,7 +133,14 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public T set(int index, T element) {
-        return null;
+
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        T previous = (T) data[index];
+        data[index] = element;
+        return previous;
     }
 
     @Override
@@ -155,7 +162,6 @@ public class CustomArrayList<T> implements List<T> {
         } else {
             throw new IndexOutOfBoundsException();
         }
-
 
     }
 
