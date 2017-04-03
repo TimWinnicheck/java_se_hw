@@ -1,9 +1,6 @@
 package com.win.java.se;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class CustomLinkedList<T> implements List<T> {
 
@@ -145,7 +142,16 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        Objects.requireNonNull(c);
+
+        Node<T> current = head.next;
+        for (int i = 0; i < size; i++) {
+            if (c.contains(current.value) != true) {
+                remove(i);
+            }
+            current = current.next;
+        }
+        return true;
     }
 
     @Override

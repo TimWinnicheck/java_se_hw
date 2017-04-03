@@ -144,7 +144,15 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        Objects.requireNonNull(c);
+        int index = 0;
+        while (index < size) {
+            if (c.contains(data[index]) != true) {
+                remove(index);
+            }
+            index++;
+        }
+        return true;
     }
 
     @Override
