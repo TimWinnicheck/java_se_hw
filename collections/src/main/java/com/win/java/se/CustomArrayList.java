@@ -120,7 +120,14 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
-        return false;
+        if (c == null) {
+            return false;
+        } else {
+            for (Object value : c) {
+                add(index, (T) value);
+            }
+        }
+        return true;
     }
 
     @Override
