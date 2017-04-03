@@ -38,7 +38,19 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new Iterator<T>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return getNodeByIndex(index).hasNext();
+            }
+
+            @Override
+            public T next() {
+                return (T) getNodeByIndex(index++).next;
+            }
+        };
     }
 
     @Override

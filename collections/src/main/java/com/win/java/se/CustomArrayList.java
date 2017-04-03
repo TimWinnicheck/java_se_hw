@@ -35,7 +35,28 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new Iterator<T>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                if (index >= 0 && index < size) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            @Override
+            public T next() {
+                if (index + 1 < size) {
+                    index++;
+                    return (T) data[index];
+                } else {
+                    return null;
+                }
+            }
+        };
     }
 
     @Override

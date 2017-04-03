@@ -159,6 +159,14 @@ public class CustomListsTest {
 
     }
 
+    @Test
+    public void testThatWeCanGetTheFirstElementFromAListOfASingleElement() throws Exception {
+        list.add("single");
+
+        assertTrue(list.get(0) == "single");
+
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");
