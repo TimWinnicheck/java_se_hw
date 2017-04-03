@@ -201,12 +201,75 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public ListIterator<T> listIterator() {
-        return null;
+        return listIterator(0);
     }
 
     @Override
     public ListIterator<T> listIterator(int index) {
-        return null;
+        return new ListIterator<T>() {
+            private int iterator = index;
+
+            @Override
+            public boolean hasNext() {
+                if (iterator < size && iterator > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            @Override
+            public T next() {
+                if (iterator < size && iterator > 0) {
+                    return (T) data[++iterator];
+                } else {
+                    return null;
+                }
+            }
+
+            @Override
+            public boolean hasPrevious() {
+                if (iterator < size && iterator > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            @Override
+            public T previous() {
+                if (hasPrevious() == true) {
+                    return (T) data[--iterator];
+                } else {
+                    return null;
+                }
+            }
+
+            @Override
+            public int nextIndex() {
+                return ++iterator;
+            }
+
+            @Override
+            public int previousIndex() {
+                return --iterator;
+            }
+
+            @Override
+            public void remove() {
+                CustomArrayList.this.remove(iterator);
+            }
+
+            @Override
+            public void set(T t) {
+                CustomArrayList.this.set(iterator, t);
+            }
+
+            @Override
+            public void add(T t) {
+                CustomArrayList.this.add(iterator, t);
+            }
+        };
     }
 
     @Override

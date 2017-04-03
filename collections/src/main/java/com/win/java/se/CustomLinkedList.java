@@ -204,12 +204,63 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public ListIterator<T> listIterator() {
-        return null;
+        return listIterator(0);
     }
 
     @Override
     public ListIterator<T> listIterator(int index) {
-        return null;
+        return new ListIterator<T>() {
+
+            private int iterator = index + 1;
+
+            public boolean hasNext() {
+                if (get(iterator) != null) {
+                    return getNodeByIndex(iterator).hasNext();
+                }
+                return false;
+            }
+
+            public T next() {
+                return getNodeByIndex(iterator++).next.value;
+            }
+
+            public boolean hasPrevious() {
+                if (iterator < size && iterator > 0)
+                    return true;
+                else {
+                    return false;
+                }
+            }
+
+            public T previous() {
+                if (hasPrevious() == true) {
+                    return getNodeByIndex(--iterator).value;
+                } else {
+                    return null;
+                }
+            }
+
+            public int nextIndex() {
+                return iterator + 1;
+            }
+
+            public int previousIndex() {
+                return iterator - 1;
+            }
+
+            public void remove() {
+                CustomLinkedList.this.remove(iterator);
+                iterator = iterator - 1;
+            }
+
+            public void set(T t) {
+                CustomLinkedList.this.set(iterator + 1, t);
+            }
+
+            public void add(T t) {
+                CustomLinkedList.this.add(t);
+            }
+        };
     }
 
     @Override
