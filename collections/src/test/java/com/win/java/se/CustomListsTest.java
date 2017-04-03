@@ -170,10 +170,29 @@ public class CustomListsTest {
     @Test
     public void testThatItsPossibleToAddAnElementByIndex() throws Exception {
         fillList();
+        System.out.println(list.toString());
 
         list.add(1, "aa1naa");
+        System.out.println(list.toString());
         assertTrue(list.get(1) == "aa1naa");
-        assertTrue(list.get(2) == "aa2a");
+        assertTrue(list.get(2) == "aa1a");
+    }
+
+    @Test
+    public void testThatItsPossibleToAddAnElementByIndexAsTheLastElement() throws Exception {
+        fillList();
+
+        list.add(5, "aa5a");
+        assertTrue(list.get(5) == "aa5a");
+        assertTrue(list.get(6) == "aa4a");
+
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testThatAddingByIndexThatDoesntExistThrowsAnElementOutOfBoundsException() throws Exception {
+        fillList();
+
+        list.add(6, "asdasd");
     }
 
     private void fillList() {

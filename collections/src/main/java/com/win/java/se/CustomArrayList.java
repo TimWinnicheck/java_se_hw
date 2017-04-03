@@ -139,6 +139,24 @@ public class CustomArrayList<T> implements List<T> {
     @Override
     public void add(int index, T element) {
 
+        if (size == data.length) {
+            int newLength = (data.length * 3) / 2 + 1;
+            data = Arrays.copyOf(data, newLength);
+        }
+
+        if (index >= 0 && index < size) {
+            add((T) data[size]);
+            int i = size;
+            while (i > index) {
+                data[i] = data[i - 1];
+                i--;
+            }
+            data[i] = element;
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+
+
     }
 
     @Override

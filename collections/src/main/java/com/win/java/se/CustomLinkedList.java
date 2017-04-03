@@ -141,6 +141,19 @@ public class CustomLinkedList<T> implements List<T> {
     @Override
     public void add(int index, T element) {
 
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node<T> current = head.next;
+        for (int i = 0; i < index - 1; i++) {
+            current = current.next;
+        }
+        Node<T> temp = current.next;
+        current.next = new Node<>(element);
+        current.next.next = temp;
+        size++;
+
     }
 
     @Override
