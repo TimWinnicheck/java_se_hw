@@ -105,7 +105,14 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public V remove(Object key) {
-        return null;
+        V toReturn = null;
+        int index = getHash((K) key);
+        if (buckets[index] != null) {
+
+            toReturn = get(key);
+            buckets[index] = null;
+        }
+        return toReturn;
     }
 
     @Override

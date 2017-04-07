@@ -109,4 +109,14 @@ public class CustomHashMapTest {
         Object[] got = m.getAll(2);
         assertTrue(got[2] == "asss");
     }
+
+    @Test
+    public void testThatItsPossibleToRemoveBuckets() throws Exception {
+
+        m.put(2, "ssada");
+        m.put(3, "ssss");
+        m.remove(2);
+        assertTrue(m.get(2) == null);
+
+    }
 }
