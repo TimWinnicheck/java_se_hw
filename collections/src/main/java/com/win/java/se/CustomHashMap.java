@@ -49,6 +49,10 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public V get(Object key) {
+        int index = getHash((K) key);
+        if (buckets[index] != null) {
+            return buckets[index].value;
+        }
         return null;
     }
 

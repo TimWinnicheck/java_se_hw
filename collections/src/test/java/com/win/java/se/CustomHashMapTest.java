@@ -9,6 +9,7 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @FixMethodOrder
@@ -94,5 +95,16 @@ public class CustomHashMapTest {
     public void testThatMapCalculateItsSizeProperly() {
     }
 
+    @Test
+    public void testThatItsPossibleToGetAnAddedEntryByKey() throws Exception {
+        m.put(2, "sssss");
+        assertEquals(m.get(2), "sssss");
+    }
 
+    @Test
+    public void testThatItsPossibleToGetMultipleEntriesAddedWithTheSameKey() throws Exception {
+        m.put(2, "sssss");
+        m.put(2, "aaaaa");
+        System.out.println(m.get(2));
+    }
 }
