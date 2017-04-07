@@ -118,10 +118,16 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
 
+        for (Map.Entry<? extends K, ? extends V> entry : m.entrySet()) {
+            put(entry.getKey(), entry.getValue());
+        }
     }
 
     @Override
     public void clear() {
+
+        buckets = new CustomEntry[CAPACITY];
+        size = 0;
 
     }
 
