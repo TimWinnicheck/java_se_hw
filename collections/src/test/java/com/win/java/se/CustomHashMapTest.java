@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 @FixMethodOrder
 public class CustomHashMapTest {
 
-    private Map<Integer, String> m;
+    private CustomHashMap<Integer, String> m;
 
     @Before
     public void init() {
@@ -105,6 +105,8 @@ public class CustomHashMapTest {
     public void testThatItsPossibleToGetMultipleEntriesAddedWithTheSameKey() throws Exception {
         m.put(2, "sssss");
         m.put(2, "aaaaa");
-        System.out.println(m.get(2));
+        m.put(2, "asss");
+        Object[] got = m.getAll(2);
+        assertTrue(got[2] == "asss");
     }
 }

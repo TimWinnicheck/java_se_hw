@@ -56,6 +56,31 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         return null;
     }
 
+
+    public V[] getAll(Object key) {
+        int index = getHash((K) key);
+        if (buckets[index] != null) {
+            Object[] toReturn = new Object[buckets[index].size];
+            CustomEntry temp = buckets[index];
+            for (int i = 0; i < buckets[index].size; i++) {
+                toReturn[i] = temp.value;
+                temp = temp.next();
+            }
+            return (V[]) toReturn;
+        }
+        return null;
+    }
+
+    private int getBucketSize(CustomEntry<K, V> bucket) {
+        int size = 0;
+        while (bucket != null) {
+            size++;
+            bucket = bucket.next();
+        }
+        return size;
+    }
+
+
     @Override
     public V put(K key, V value) {
         Objects.requireNonNull(key);
@@ -71,7 +96,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
                     temp = temp.next();
                 }
                 temp.setNext(new CustomEntry(key, value));
-                buckets[index] = temp;
+                buckets[index].size++;
                 return buckets[index].next().value;
             }
         }
@@ -112,15 +137,25 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         return Math.floorMod(key.hashCode(), CAPACITY);
     }
 
+    @Override
+    public String toString() {
+        return "CustomHashMap{" +
+                "size=" + size +
+                ", buckets=" + Arrays.toString(buckets) +
+                '}';
+    }
+
     private class CustomEntry<K, V> implements Iterator<CustomEntry<K, V>> {
 
         private final K key;
         private V value;
         private CustomEntry<K, V> next = null;
+        private int size;
 
         CustomEntry(K key, V value) {
             this.key = key;
             this.value = value;
+            this.size = 1;
         }
 
         public boolean hasNext() {
@@ -133,6 +168,16 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
         void setNext(CustomEntry<K, V> next) {
             this.next = next;
+        }
+
+        @Override
+        public String toString() {
+            return "CustomEntry{" +
+                    "key=" + key +
+                    ", value=" + value +
+                    ", next=" + next +
+                    ", size=" + size +
+                    '}';
         }
     }
 }
