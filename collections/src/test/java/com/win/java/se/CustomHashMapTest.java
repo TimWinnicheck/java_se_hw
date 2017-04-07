@@ -55,10 +55,6 @@ public class CustomHashMapTest {
         m.put(1, null);
     }
 
-    @Test(expected = OutOfMemoryError.class)
-    public void testThatMapHaveInfiniteCapacity() {
-    }
-
     @Test
     public void testThatMapCanPutPairWithKeyThatAlreadyPresented() {
         System.out.println(m.put(5, "aaaa"));
@@ -67,33 +63,6 @@ public class CustomHashMapTest {
         assertTrue(m.containsValue("wwwww"));
     }
 
-    @Test
-    public void testThatMapCanContainsKeysWithSameHashCode() {
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void testThatContainsKeyMethodThrowsExceptionOnNullKey() {
-    }
-
-    @Test(expected = ClassCastException.class)
-    public void testThatContainsKeyMethodThrowsExceptionOnWrongKeyClass() {
-    }
-
-    @Test
-    public void testContainsValueMethodWorksProperlyOn() {
-    }
-
-    @Test
-    public void testContainsValueMethodWorksProperlyOnNullInputValue() {
-    }
-
-    @Test(expected = ClassCastException.class)
-    public void testValueContainsMethodThrowsExceptionOnWrongInputValueClass() {
-    }
-
-    @Test
-    public void testThatMapCalculateItsSizeProperly() {
-    }
 
     @Test
     public void testThatItsPossibleToGetAnAddedEntryByKey() throws Exception {

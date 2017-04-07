@@ -133,7 +133,121 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public Set<K> keySet() {
-        return null;
+        return new Set<K>() {
+            @Override
+            public int size() {
+                return size;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return CustomHashMap.this.isEmpty();
+            }
+
+            @Override
+            public boolean contains(Object o) {
+                return CustomHashMap.this.containsValue(o);
+            }
+
+            @Override
+            public Iterator<K> iterator() {
+                return new Iterator<K>() {
+                    int index = 0;
+
+                    @Override
+                    public boolean hasNext() {
+                        if (index < size()) {
+                            return true;
+                        }
+                        return false;
+                    }
+
+                    @Override
+                    public K next() {
+                        return buckets[++index].key;
+                    }
+                };
+            }
+
+            @Override
+            public Object[] toArray() {
+                Object[] keySet = new Object[size];
+                for (int i = 0; i < size; i++) {
+                    keySet[i] = buckets[i].key;
+                }
+                return keySet;
+            }
+
+            @Override
+            public <T> T[] toArray(T[] a) {
+                Object[] keySet = new Object[size];
+                for (int i = 0; i < size; i++) {
+                    keySet[i] = buckets[i].key;
+                }
+                return (T[]) keySet;
+            }
+
+            @Override
+            public boolean add(K k) {
+                put(k, null);
+                return true;
+            }
+
+            @Override
+            public boolean remove(Object o) {
+                CustomHashMap.this.remove(o);
+                return true;
+            }
+
+            @Override
+            public boolean containsAll(Collection<?> c) {
+                CustomEntry tempEntry;
+                for (Object element : c) {
+                    for (int i = 0; i < size; i++) {
+                        tempEntry = buckets[i];
+                        while (tempEntry.hasNext()) {
+                            if (!tempEntry.value.equals(element)) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+
+            @Override
+            public boolean addAll(Collection<? extends K> c) {
+                for (Object key : c) {
+                    put((K) key, null);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean retainAll(Collection<?> c) {
+                for (int i = 0; i < size; i++) {
+                    if (!c.contains(buckets[i].key)) {
+                        CustomHashMap.this.remove(buckets[i].key);
+                    }
+                }
+                return true;
+            }
+
+            @Override
+            public boolean removeAll(Collection<?> c) {
+                for (Object key : c) {
+                    if (CustomHashMap.this.containsKey(key)) {
+                        CustomHashMap.this.remove(key);
+                    }
+                }
+                return true;
+            }
+
+            @Override
+            public void clear() {
+                CustomHashMap.this.clear();
+            }
+        };
     }
 
     @Override
