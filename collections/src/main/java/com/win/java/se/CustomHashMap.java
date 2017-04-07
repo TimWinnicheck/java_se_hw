@@ -44,9 +44,23 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     @Override
     public V put(K key, V value) {
         Objects.requireNonNull(key);
-
-        buckets[0] = new CustomEntry<>(key, value);
-        return null; //TODO implement return prev value
+        int index = getHash(key);
+        if (buckets[index] == null) {
+            buckets[index] = new CustomEntry<K, V>(key, value);
+            size++;
+            return buckets[index].value;
+        } else {
+            if (buckets[index].value != value) {
+                CustomEntry temp = buckets[index];
+                while (temp.next() != null) {
+                    temp = temp.next();
+                }
+                temp.setNext(new CustomEntry(key, value));
+                buckets[index] = temp;
+                return buckets[index].next().value;
+            }
+        }
+        return null;
     }
 
     @Override
