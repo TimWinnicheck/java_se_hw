@@ -4,10 +4,10 @@ import java.util.*;
 
 public class CustomHashMap<K, V> implements Map<K, V> {
 
-    private static final int DEFAULT_CAPACITY = 16;
+    private static final int CAPACITY = 16;
     private int size = 0;
 
-    private CustomEntry<K, V>[] buckets = new CustomEntry[DEFAULT_CAPACITY];
+    private CustomEntry<K, V>[] buckets = new CustomEntry[CAPACITY];
 
     @Override
     public int size() {
@@ -75,6 +75,10 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     @Override
     public Set<Entry<K, V>> entrySet() {
         return null;
+    }
+
+    private int getHash(K key) {
+        return Math.floorMod(key.hashCode(), CAPACITY);
     }
 
     private class CustomEntry<K, V> implements Iterator<CustomEntry<K, V>> {
