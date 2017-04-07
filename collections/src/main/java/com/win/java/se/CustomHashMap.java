@@ -22,9 +22,11 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsKey(Object key) {
-        CustomEntry<K, V> bucket = buckets[0];
-        if (bucket != null) {
-            return bucket.key.equals(key);
+        int index = getHash((K) key);
+        if (buckets[index] != null) {
+            if (buckets[index].key.equals(key)) {
+                return true;
+            }
         }
         return false;
     }
