@@ -134,5 +134,15 @@ public class CustomTreeMapTest {
         assertTrue(m.size() == 3);
     }
 
-
+    @Test
+    public void testThatContainsMethodsWorkForADecentAmountOfEntries() throws Exception {
+        int i = 1;
+        while (i < 21) {
+            m.put(i, String.valueOf(i));
+            i++;
+        }
+        assertTrue(m.size() == 20);
+        assertTrue(m.containsKey(15));
+        assertTrue(m.containsValue(String.valueOf(10)));
+    }
 }
