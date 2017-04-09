@@ -17,7 +17,11 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public boolean isEmpty() {
-        return true;
+        if (size == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
