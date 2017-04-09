@@ -109,10 +109,60 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
         }
     }
 
+    private boolean findAndRemove(Node<K, V> node, K key) {
+        if (node.key.equals(key)) {
+            return true;
+        } else if (node.key.compareTo(key) > 0) {
+            if (findAndRemove(node.left, key) == true) {
+                Node temp = node.left.left;
+                node.left = node.left.right;
+                if (node.left != null) {
+                    node.left.left = temp;
+
+                } else {
+                    node.left = temp;
+                }
+            }
+        } else {
+            if (findAndRemove(node.right, key) == true) {
+                Node temp = node.right.right;
+                node.right = node.right.left;
+                if (node.right != null) {
+                    node.right.right = temp;
+
+                } else {
+                    node.right = temp;
+                }
+            }
+        }
+        return false;
+    }
+
+    private int sizeOfNode(Node<K, V> node) {
+        int out = 0;
+        if (node.left != null) {
+            out = out + sizeOfNode(node.left);
+        } else {
+            if (node.right != null) {
+                out = out + sizeOfNode(node.right);
+            }
+        }
+        if (node != null) {
+            out = out + 1;
+        }
+        return out;
+    }
+
 
     @Override
     public V remove(Object key) {
-        return null;
+        if (find(root, (K) key) == null) {
+            return null;
+        }
+        V valueToReturn = find(root, (K) key).value;
+        size = size() - 1;
+        findAndRemove(root, (K) key);
+        return valueToReturn;
     }
 
     @Override
@@ -140,6 +190,14 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "CustomTreeMap{" +
+                "root=" + root +
+                ", size=" + size +
+                '}';
+    }
+
     private class Node<K extends Comparable<K>, V> {
         private final K key;
         private V value;
@@ -151,6 +209,15 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
             this.value = value;
         }
 
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "key=" + key +
+                    ", value=" + value +
+                    ", left=" + left +
+                    ", right=" + right +
+                    '}';
+        }
     }
 
 }

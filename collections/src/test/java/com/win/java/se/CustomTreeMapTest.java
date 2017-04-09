@@ -152,4 +152,20 @@ public class CustomTreeMapTest {
         assertTrue(m.get(2) == "ffff");
 
     }
+
+    @Test
+    public void testThatItsPossibleToRemoveAKey() throws Exception {
+        m.put(1, "dddd");
+        m.put(2, "aaaa");
+        m.put(3, "ffff");
+        m.put(6, "dddd");
+        m.put(4, "wwwww");
+        m.remove(2);
+        assertTrue(m.containsKey(2) == false);
+        assertTrue(m.containsKey(1) == true);
+        assertTrue(m.containsKey(3) == true);
+        assertTrue(m.containsKey(6) == true);
+        assertTrue(m.containsKey(4) == true);
+
+    }
 }
