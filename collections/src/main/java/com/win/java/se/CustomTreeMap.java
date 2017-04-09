@@ -71,7 +71,7 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public V get(Object key) {
-        return null;
+        return find(root, (K) key).value;
     }
 
     @Override

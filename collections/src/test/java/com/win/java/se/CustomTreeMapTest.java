@@ -145,4 +145,11 @@ public class CustomTreeMapTest {
         assertTrue(m.containsKey(15));
         assertTrue(m.containsValue(String.valueOf(10)));
     }
+
+    @Test
+    public void testThatWeCanGetAValueFromAKey() throws Exception {
+        m.put(2, "ffff");
+        assertTrue(m.get(2) == "ffff");
+
+    }
 }
